@@ -1,0 +1,74 @@
+:root {
+  /* Colors */
+  --color-background: #FCE2FF;
+  --color-button-active: #2AE881;
+  --color-button-active-hover: #2BFF88;
+  --color-button-unactive: #C0C0C0;
+  --color-button-download: #FCE300;
+  --color-button-download-hover: #FCE300;
+  --color-button-clear: #201B10;
+  --color-button-upload: #FFFFFF;
+  --color-button-upload-hover: #FCE2FF;
+
+  /* Typography */
+  --font-size-s: 0.875rem;
+  --font-size-m: 1rem;
+  --font-size-l: 1.25rem;
+  --font-size-xl: 2rem;
+  --line-height-m: 1.6;
+
+  /* Spacing */
+  --spasing-xs: 0.25rem;
+  --spasing-s: 0.5rem;
+  --spasing-m: 1rem;
+  --spasing-l: 1.5rem;
+  --spasing-xl: 2rem;
+
+  /* Border radius */
+  --radius-s: 8px;
+  --radius-m: 12px;
+  --radius-l: 16px;
+
+  /* Shadows */
+  --shadow-s: 0px 2px 4px rgba(0, 0, 0, 0.1);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  line-height: var(--line-height-m);
+  background-color: var(--color-background);
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: inherit;
+}
+button:hover {}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+input,
+textarea {
+  font-family: inherit;
+  font-size: var(--font-size-m);
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+}

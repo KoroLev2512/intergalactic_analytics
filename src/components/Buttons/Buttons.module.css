@@ -1,0 +1,137 @@
+.buttonsContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.buttonsGroup {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    gap: 10px;
+    margin: 0 auto;
+}
+
+.buttonDownload {
+    display: flex;
+    height: 70px;
+    padding: 15px 27px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    align-self: stretch;
+    border-radius: 10px;
+    background: #CB81FF;
+    width: 300px;
+    margin: 0 auto;
+}
+
+.buttonError {
+    display: flex;
+    height: 70px;
+    padding: 15px 27px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 10px;
+    background: #FF5F00;
+    color: #FFF;
+    text-align: center;
+    font-size: 35px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 110%;
+}
+
+.buttonComplete {
+    display: flex;
+    height: 70px;
+    padding: 15px 27px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    background: #D4FAE6;
+    color: #201B10;
+    text-align: center;
+    font-size: 35px;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.buttonSend {
+    display: flex;
+    height: 70px;
+    padding: 15px 27px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    align-self: stretch;
+    border-radius: 10px;
+    background: #FFF;
+    color: #201B10;
+    text-align: center;
+    font-size: 35px;
+    font-style: normal;
+    font-weight: 400;
+    margin: 0 auto;
+}
+
+.buttonRemove {
+    display: flex;
+    width: 70px;
+    height: 70px;
+    padding: 8px;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    border-radius: 10px;
+    background: #201B10;
+}
+
+.buttonFile {
+    display: flex;
+    height: 70px;
+    padding: 15px 27px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    background: #CB81FF;
+    color: #201B10;
+    text-align: center;
+    font-size: 35px;
+    font-style: normal;
+    font-weight: 400;
+    cursor: auto;
+}
+
+.descriptionError {
+    color: #FF5F00;
+    text-align: center;
+    font-size: 35px;
+    font-style: normal;
+    font-weight: 400;
+    margin-top: 10px;
+}
+
+.description {
+    display: flex;
+    justify-content: center;
+    color: #201B10;
+    text-align: center;
+    font-size: 35px;
+    font-style: normal;
+    font-weight: 400;
+    margin: 10px auto 0;
+}
+
+@keyframes spinner {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.loaderSpinner {
+    animation: spinner 1s linear infinite;
+}
