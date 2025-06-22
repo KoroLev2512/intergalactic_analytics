@@ -43,7 +43,7 @@ export const HistoryPage: React.FC = () => {
                                 Обработан успешно
                             </span>
                                 <img
-                                    src="/icons/smile_happy.svg"
+                                    src={file.processed ? "/icons/smile_happy_black.svg" : "/icons/smile_happy_gray.svg"}
                                     alt="smile_happy"
                                 />
                             </div>
@@ -54,7 +54,7 @@ export const HistoryPage: React.FC = () => {
                                 Не удалось обработать
                             </span>
                                 <img
-                                    src="/icons/smile_sad.svg"
+                                    src={file.processed ? "/icons/smile_sad_gray.svg" : "/icons/smile_sad_black.svg"}
                                     alt="smile_sad"
                                 />
                             </div>

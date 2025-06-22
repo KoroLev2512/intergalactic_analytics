@@ -1,17 +1,16 @@
-import {FilesContext} from "./context.ts";
-import type {File} from "./types.ts";
-import {type ReactNode, useState} from "react";
+import {FilesContext, type FilesContextType} from "./context.ts";
+import {type ReactNode} from "react";
+import {useStore} from "../../store";
 
 type ProviderProps = {
     children: ReactNode;
-    initialFiles?: File[];
 };
 
-export const FileProvider = ({children, initialFiles = []}: ProviderProps) => {
-    const [files, setFiles] = useState<File[]>(initialFiles);
+export const FileProvider = ({ children }: ProviderProps) => {
+    const { files, addFile } = useStore();
 
     return (
-        <FilesContext.Provider value={{files, setFiles}}>
+        <FilesContext.Provider value={{ files, addFile } as FilesContextType}>
             {children}
         </FilesContext.Provider>
     );

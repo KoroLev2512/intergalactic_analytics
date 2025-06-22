@@ -1,12 +1,13 @@
 import {useRef, useState, useCallback} from "react";
 import {ButtonComplete, ButtonDownload, ButtonError, ButtonFile, ButtonSend} from "../Buttons";
 import styles from "./Uploader.module.css"
+import { FileService } from "../../services/file";
 
 export const Uploader = () => {
     const [fileUploaded, setFileUploaded] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
-    const [file, setFile] = useState<File | null>(null);
+    const [file, setFile] = useState<globalThis.File | null>(null);
     const [highlightData, setHighlightData] = useState<{ value: string | number; description: string }[]>([]);
 
     const inputRef = useRef<HTMLInputElement | null>(null);
@@ -17,12 +18,14 @@ export const Uploader = () => {
             console.log("Загружен файл:", file.name);
             setFile(file);
             setFileUploaded(true);
+            setHighlightData([]);
         }
     };
 
     const handleSend = useCallback(async () => {
         if (!file) return;
 
+        setHighlightData([]);
         setIsLoading(true);
         setError(null);
 
@@ -50,17 +53,17 @@ export const Uploader = () => {
             const reader = response.body.getReader();
             const decoder = new TextDecoder("utf-8");
             let buffer = "";
-
+            let finalJson: any = null;
             while (true) {
                 const { done, value } = await reader.read();
                 if (done) break;
-
                 buffer += decoder.decode(value, { stream: true });
                 let parts = buffer.split("\n");
 
                 for (let i = 0; i < parts.length - 1; i++) {
                     try {
                         const json = JSON.parse(parts[i]);
+                        finalJson = json;
                         const highlights = [
                             { value: json.total_spend_galactic, description: "общие расходы в галактических кредитах" },
                             { value: json.rows_affected, description: "количество обработанных записей" },
@@ -72,16 +75,41 @@ export const Uploader = () => {
                             { value: json.average_spend_galactic, description: "средние расходы в галактических кредитах" }
                         ];
                         setHighlightData(highlights);
-                    } catch (e) {}
+                    } catch (e) {
+                        console.error(e);
+                    }
                 }
 
                 buffer = parts[parts.length - 1];
             }
 
             localStorage.setItem("upload-history", JSON.stringify({ date: new Date().toISOString(), filename: file.name }));
+
+            if (finalJson) {
+                FileService.addFile({
+                    name: file.name,
+                    date: new Date().toISOString(),
+                    processed: true,
+                    total_spend_galactic: finalJson.total_spend_galactic,
+                    rows_affected: finalJson.rows_affected,
+                    less_spent_at: finalJson.less_spent_at,
+                    big_spent_civ: finalJson.big_spent_civ,
+                    less_spent_civ: finalJson.less_spent_civ,
+                    big_spent_at: finalJson.big_spent_at,
+                    big_spent_value: finalJson.big_spent_value,
+                    average_spend_galactic: finalJson.average_spend_galactic,
+                });
+            }
         } catch (e: any) {
             setError(e.message || "Ошибка загрузки");
-        } finally {
+            const errorFileInfo = {
+                name: file?.name ?? "unknown",
+                date: new Date().toISOString(),
+                processed: false
+            };
+            console.log(errorFileInfo);
+            FileService.addFile(errorFileInfo);}
+        finally {
             setIsLoading(false);
         }
     }, [file]);
@@ -99,12 +127,19 @@ export const Uploader = () => {
                         if (!file.name.endsWith(".csv")) {
                             setFile(file);
                             setFileUploaded(true);
+                            setHighlightData([]);
                             setError("упс, не то...");
+                            FileService.addFile({
+                                name: file?.name ?? "unknown",
+                                date: new Date().toISOString(),
+                                processed: false
+                            });
                             return;
                         }
                         console.log("Файл перетянут:", file.name);
                         setFile(file);
                         setFileUploaded(true);
+                        setHighlightData([]);
                     }
                 }}
                 onDragOver={(e) => e.preventDefault()}
