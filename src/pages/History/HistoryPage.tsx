@@ -1,15 +1,20 @@
+import { useState, useEffect } from 'react';
 import styles from './History.module.css';
 import {Header} from "../../components/Header";
 import {Link} from "react-router";
+import { FileService, type StoredFile } from '../../services/file';
 
-interface HistoryProps {
-    files: { name: string; date: string; processed: boolean; }[];
-    setFiles: React.Dispatch<React.SetStateAction<{ name: string; date: string; processed: boolean; }[]>>;
-}
+export const HistoryPage: React.FC = () => {
+    const [files, setFiles] = useState<StoredFile[]>([]);
 
-export const HistoryPage: React.FC<HistoryProps> = ({ files, setFiles }) => {
+    useEffect(() => {
+        setFiles(FileService.getFiles());
+    }, []);
+
     const handleDelete = (index: number) => {
-        setFiles(prevFiles => prevFiles.filter((_, i) => i !== index));
+        const updatedFiles = files.filter((_, i) => i !== index);
+        setFiles(updatedFiles);
+        FileService.setFiles(updatedFiles);
     };
 
     return (
@@ -27,30 +32,32 @@ export const HistoryPage: React.FC<HistoryProps> = ({ files, setFiles }) => {
                                 {file.name}
                             </span>
                         </div>
-                        <div className={styles.rowDate}>
-                            {file.date}
-                        </div>
-                        <div
-                            className={`${styles.rowStatus} ${file.processed ? styles.grayStatus : ''}`}
-                        >
+                        <div className={styles.rowStaticContent}>
+                            <div className={styles.rowDate}>
+                                {file.date}
+                            </div>
+                            <div
+                                className={`${styles.rowStatus} ${file.processed ? '' : styles.grayStatus}`}
+                            >
                             <span className={styles.rowStatusProcessed}>
                                 Обработан успешно
                             </span>
-                            <img
-                                src="/icons/smile_happy.svg"
-                                alt="smile_happy"
-                            />
-                        </div>
-                        <div
-                            className={`${styles.rowStatus} ${file.processed ? '' : styles.grayStatus}`}
-                        >
+                                <img
+                                    src="/icons/smile_happy.svg"
+                                    alt="smile_happy"
+                                />
+                            </div>
+                            <div
+                                className={`${styles.rowStatus} ${file.processed ? styles.grayStatus : '' }`}
+                            >
                             <span className={styles.rowStatusProcessed}>
                                 Не удалось обработать
                             </span>
-                            <img
-                                src="/icons/smile_sad.svg"
-                                alt="smile_sad"
-                            />
+                                <img
+                                    src="/icons/smile_sad.svg"
+                                    alt="smile_sad"
+                                />
+                            </div>
                         </div>
                     </div>
                     <button
@@ -71,7 +78,10 @@ export const HistoryPage: React.FC<HistoryProps> = ({ files, setFiles }) => {
                     </button>
                 </Link>
                 {files.length > 0 &&
-                    <button className={styles.buttonClear} onClick={() => setFiles([])}>
+                    <button className={styles.buttonClear} onClick={() => {
+                        setFiles([]);
+                        FileService.clearFiles();
+                    }}>
                         Очистить всё
                     </button>}
             </div>
