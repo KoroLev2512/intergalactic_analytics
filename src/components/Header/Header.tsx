@@ -4,10 +4,10 @@ import {NavLink} from "react-router-dom";
 export const Header = () => {
     return (
         <div className={styles.header}>
-            <div>
+            <NavLink to="/">
                 <img src="/logo.svg" alt="logo" className={styles.logo}/>
                 <img src="/galactic_analyst.svg" alt="galactic_analyst" className={styles.logo}/>
-            </div>
+            </NavLink>
             <div className={styles.menu}>
                 <NavLink
                     to="/"
