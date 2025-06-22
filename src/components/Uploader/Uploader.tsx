@@ -53,26 +53,26 @@ export const Uploader = () => {
             const reader = response.body.getReader();
             const decoder = new TextDecoder("utf-8");
             let buffer = "";
-            let finalJson: any = null;
+            let finalJson: Record<string, unknown> | null = null;
             while (true) {
                 const { done, value } = await reader.read();
                 if (done) break;
                 buffer += decoder.decode(value, { stream: true });
-                let parts = buffer.split("\n");
+                const parts = buffer.split("\n");
 
                 for (let i = 0; i < parts.length - 1; i++) {
                     try {
                         const json = JSON.parse(parts[i]);
                         finalJson = json;
                         const highlights = [
-                            { value: json.total_spend_galactic, description: "общие расходы в галактических кредитах" },
-                            { value: json.rows_affected, description: "количество обработанных записей" },
-                            { value: json.less_spent_at, description: "день года с минимальными расходами" },
-                            { value: json.big_spent_civ, description: "цивилизация с максимальными расходами" },
-                            { value: json.less_spent_civ, description: "цивилизация с минимальными расходами" },
-                            { value: json.big_spent_at, description: "день года с максимальными расходами" },
-                            { value: json.big_spent_value, description: "максимальная сумма расходов за день" },
-                            { value: json.average_spend_galactic, description: "средние расходы в галактических кредитах" }
+                            { value: Number(json.total_spend_galactic), description: "общие расходы в галактических кредитах" },
+                            { value: Number(json.rows_affected), description: "количество обработанных записей" },
+                            { value: Number(json.less_spent_at), description: "день года с минимальными расходами" },
+                            { value: String(json.big_spent_civ), description: "цивилизация с максимальными расходами" },
+                            { value: String(json.less_spent_civ), description: "цивилизация с минимальными расходами" },
+                            { value: Number(json.big_spent_at), description: "день года с максимальными расходами" },
+                            { value: Number(json.big_spent_value), description: "максимальная сумма расходов за день" },
+                            { value: Number(json.average_spend_galactic), description: "средние расходы в галактических кредитах" }
                         ];
                         setHighlightData(highlights);
                     } catch (e) {
@@ -90,31 +90,32 @@ export const Uploader = () => {
                     name: file.name,
                     date: new Date().toISOString(),
                     processed: true,
-                    total_spend_galactic: finalJson.total_spend_galactic,
-                    rows_affected: finalJson.rows_affected,
-                    less_spent_at: finalJson.less_spent_at,
-                    big_spent_civ: finalJson.big_spent_civ,
-                    less_spent_civ: finalJson.less_spent_civ,
-                    big_spent_at: finalJson.big_spent_at,
-                    big_spent_value: finalJson.big_spent_value,
-                    average_spend_galactic: finalJson.average_spend_galactic,
+                    total_spend_galactic: Number(finalJson.total_spend_galactic),
+                    rows_affected: Number(finalJson.rows_affected),
+                    less_spent_at: Number(finalJson.less_spent_at),
+                    big_spent_civ: String(finalJson.big_spent_civ),
+                    less_spent_civ: String(finalJson.less_spent_civ),
+                    big_spent_at: Number(finalJson.big_spent_at),
+                    big_spent_value: Number(finalJson.big_spent_value),
+                    average_spend_galactic: Number(finalJson.average_spend_galactic),
                 });
                 FileService.addFile({
                     name: file.name,
                     date: new Date().toISOString(),
                     processed: true,
-                    total_spend_galactic: finalJson.total_spend_galactic,
-                    rows_affected: finalJson.rows_affected,
-                    less_spent_at: finalJson.less_spent_at,
-                    big_spent_civ: finalJson.big_spent_civ,
-                    less_spent_civ: finalJson.less_spent_civ,
-                    big_spent_at: finalJson.big_spent_at,
-                    big_spent_value: finalJson.big_spent_value,
-                    average_spend_galactic: finalJson.average_spend_galactic,
+                    total_spend_galactic: Number(finalJson.total_spend_galactic),
+                    rows_affected: Number(finalJson.rows_affected),
+                    less_spent_at: Number(finalJson.less_spent_at),
+                    big_spent_civ: String(finalJson.big_spent_civ),
+                    less_spent_civ: String(finalJson.less_spent_civ),
+                    big_spent_at: Number(finalJson.big_spent_at),
+                    big_spent_value: Number(finalJson.big_spent_value),
+                    average_spend_galactic: Number(finalJson.average_spend_galactic),
                 });
             }
-        } catch (e: any) {
-            setError(e.message || "Ошибка загрузки");
+        } catch (e) {
+            const errorMessage = e instanceof Error ? e.message : "Ошибка загрузки";
+            setError(errorMessage);
             const errorFileInfo = {
                 name: file?.name ?? "unknown",
                 date: new Date().toISOString(),
