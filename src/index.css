@@ -1,14 +1,14 @@
 :root {
   /* Colors */
-  --color-background: #FCE2FF;
-  --color-button-active: #2AE881;
-  --color-button-active-hover: #2BFF88;
-  --color-button-unactive: #C0C0C0;
-  --color-button-download: #FCE300;
-  --color-button-download-hover: #FCE300;
-  --color-button-clear: #201B10;
-  --color-button-upload: #FFFFFF;
-  --color-button-upload-hover: #FCE2FF;
+  --color-background: #fce2ff;
+  --color-button-active: #2ae881;
+  --color-button-active-hover: #2bff88;
+  --color-button-unactive: #c0c0c0;
+  --color-button-download: #fce300;
+  --color-button-download-hover: #fce300;
+  --color-button-clear: #201b10;
+  --color-button-upload: #ffffff;
+  --color-button-upload-hover: #fce2ff;
 
   /* Typography */
   --font-size-s: 0.875rem;
@@ -45,7 +45,7 @@
 }
 
 body {
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
   line-height: var(--line-height-m);
   background-color: var(--color-background);
 }
@@ -56,7 +56,8 @@ button {
   background: none;
   color: inherit;
 }
-button:hover {}
+button:hover {
+}
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;

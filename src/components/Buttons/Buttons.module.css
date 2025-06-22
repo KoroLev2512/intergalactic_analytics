@@ -1,139 +1,139 @@
 .buttonsContainer {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .buttonsGroup {
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-    gap: 10px;
-    margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  gap: 10px;
+  margin: 0 auto;
 }
 
 .buttonDownload {
-    display: flex;
-    height: 70px;
-    padding: 15px 27px;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    align-self: stretch;
-    border-radius: 10px;
-    background: #CB81FF;
-    width: 300px;
-    margin: 0 auto;
+  display: flex;
+  height: 70px;
+  padding: 15px 27px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  align-self: stretch;
+  border-radius: 10px;
+  background: #cb81ff;
+  width: 300px;
+  margin: 0 auto;
 }
 
 .buttonError {
-    display: flex;
-    height: 70px;
-    padding: 15px 27px;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    border-radius: 10px;
-    background: #FF5F00;
-    color: #FFF;
-    text-align: center;
-    font-size: 35px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 110%;
+  display: flex;
+  height: 70px;
+  padding: 15px 27px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 10px;
+  background: #ff5f00;
+  color: #fff;
+  text-align: center;
+  font-size: 35px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 110%;
 }
 
 .buttonComplete {
-    display: flex;
-    height: 70px;
-    padding: 15px 27px;
-    justify-content: center;
-    align-items: center;
-    border-radius: 10px;
-    background: #D4FAE6;
-    color: #201B10;
-    text-align: center;
-    font-size: 35px;
-    font-style: normal;
-    font-weight: 400;
+  display: flex;
+  height: 70px;
+  padding: 15px 27px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  background: #d4fae6;
+  color: #201b10;
+  text-align: center;
+  font-size: 35px;
+  font-style: normal;
+  font-weight: 400;
 }
 
 .buttonSend {
-    display: flex;
-    height: 70px;
-    padding: 15px 27px;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    align-self: stretch;
-    border-radius: 10px;
-    background: #FFF;
-    color: #201B10;
-    text-align: center;
-    font-size: 35px;
-    font-style: normal;
-    font-weight: 400;
-    margin: 0 auto;
+  display: flex;
+  height: 70px;
+  padding: 15px 27px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  align-self: stretch;
+  border-radius: 10px;
+  background: #fff;
+  color: #201b10;
+  text-align: center;
+  font-size: 35px;
+  font-style: normal;
+  font-weight: 400;
+  margin: 0 auto;
 }
 
 .buttonRemove {
-    display: flex;
-    width: 70px;
-    height: 70px;
-    padding: 8px;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    border-radius: 10px;
-    background: #201B10;
+  display: flex;
+  width: 70px;
+  height: 70px;
+  padding: 8px;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  border-radius: 10px;
+  background: #201b10;
 }
 
 .buttonFile {
-    display: flex;
-    height: 70px;
-    padding: 15px 27px;
-    justify-content: center;
-    align-items: center;
-    border-radius: 10px;
-    background: #CB81FF;
-    color: #201B10;
-    text-align: center;
-    font-size: 35px;
-    font-style: normal;
-    font-weight: 400;
-    cursor: auto;
+  display: flex;
+  height: 70px;
+  padding: 15px 27px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  background: #cb81ff;
+  color: #201b10;
+  text-align: center;
+  font-size: 35px;
+  font-style: normal;
+  font-weight: 400;
+  cursor: auto;
 }
 
 .descriptionError {
-    display: flex;
-    justify-content: center;
-    color: #FF5F00;
-    text-align: center;
-    font-size: 35px;
-    font-style: normal;
-    font-weight: 400;
-    margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  color: #ff5f00;
+  text-align: center;
+  font-size: 35px;
+  font-style: normal;
+  font-weight: 400;
+  margin-top: 10px;
 }
 
 .description {
-    display: flex;
-    justify-content: center;
-    color: #201B10;
-    text-align: center;
-    font-size: 35px;
-    font-style: normal;
-    font-weight: 400;
-    margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  color: #201b10;
+  text-align: center;
+  font-size: 35px;
+  font-style: normal;
+  font-weight: 400;
+  margin-top: 10px;
 }
 
 @keyframes spinner {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .loaderSpinner {
-    animation: spinner 1s linear infinite;
+  animation: spinner 1s linear infinite;
 }

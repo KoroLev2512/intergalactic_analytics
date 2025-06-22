@@ -1,1 +1,1 @@
-export {GeneratorPage} from './GeneratorPage';
+export { GeneratorPage } from './GeneratorPage';

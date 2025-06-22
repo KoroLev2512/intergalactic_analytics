@@ -1,173 +1,172 @@
 .container {
-    display: flex;
-    flex-direction: column;
-    max-width: 1920px;
-    margin: 0 auto;
-    padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 .row {
-    display: flex;
-    flex-direction: row;
-    gap: 40px;
-    color: #201B10;
-    font-size: 30px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    margin-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  color: #201b10;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-bottom: 10px;
 }
 
 .rowContent {
-    display: flex;
-    flex-direction: row;
-    padding: 16px 20px;
-    align-items: center;
-    justify-content: space-between;
-    flex: 1 0 0;
-    border-radius: 40px;
-    background: #CB81FF;
-    cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  padding: 16px 20px;
+  align-items: center;
+  justify-content: space-between;
+  flex: 1 0 0;
+  border-radius: 40px;
+  background: #cb81ff;
+  cursor: pointer;
 }
 
 .rowStaticContent {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    gap: 160px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 160px;
 }
 
 .rowFile {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 5px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
 }
 
 .rowFileName {
-    max-width: 400px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    display: inline-block;
+  max-width: 400px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: inline-block;
 }
 
 .rowStatus {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 8px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
 }
 
 .rowDelete {
-    display: flex;
-    width: 87px;
-    height: 87px;
-    padding: 16px 20px;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    border-radius: 20px;
-    background: #FFF;
+  display: flex;
+  width: 87px;
+  height: 87px;
+  padding: 16px 20px;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  border-radius: 20px;
+  background: #fff;
 }
 
 .grayStatus {
-    color: #8F64AE;
+  color: #8f64ae;
 }
 
 .buttons {
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
-    margin: 40px auto;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  margin: 40px auto;
 }
 
 .buttonGenerate {
-    display: flex;
-    height: 80px;
-    padding: 15px 27px;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    border-radius: 25px;
-    background: var(--color-button-active);
-    color: #201B10;
-    text-align: center;
-    font-size: 35px;
-    font-style: normal;
-    font-weight: 500;
-    text-decoration: none;
+  display: flex;
+  height: 80px;
+  padding: 15px 27px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 25px;
+  background: var(--color-button-active);
+  color: #201b10;
+  text-align: center;
+  font-size: 35px;
+  font-style: normal;
+  font-weight: 500;
+  text-decoration: none;
 }
 
 .buttonGenerate:hover {
-    background: var(--color-button-active-hover);
-    transition: background 0.3s ease;
+  background: var(--color-button-active-hover);
+  transition: background 0.3s ease;
 }
 
 .buttonClear {
-    display: flex;
-    height: 80px;
-    padding: 15px 27px;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    border-radius: 25px;
-    background: #201B10;
-    color: #FFF;
-    text-align: center;
-    font-size: 35px;
-    font-style: normal;
-    font-weight: 500;
+  display: flex;
+  height: 80px;
+  padding: 15px 27px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 25px;
+  background: #201b10;
+  color: #fff;
+  text-align: center;
+  font-size: 35px;
+  font-style: normal;
+  font-weight: 500;
 }
 
 .notHighlights {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    flex: 1 0 0;
-    align-self: stretch;
-    color: #CB81FF;
-    text-align: center;
-    font-size: 40px;
-    font-style: normal;
-    font-weight: 400;
-    min-height: 470px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1 0 0;
+  align-self: stretch;
+  color: #cb81ff;
+  text-align: center;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 400;
+  min-height: 470px;
 }
 
 .highlights {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    gap: 20px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 20px;
 }
 
 .highlight {
-    display: flex;
-    height: 117.5px;
-    padding: 10px;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
-    align-self: stretch;
-    border-radius: 24px;
-    background: #EACDFF;
+  display: flex;
+  height: 117.5px;
+  padding: 10px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  align-self: stretch;
+  border-radius: 24px;
+  background: #eacdff;
 }
 
 .highlightTitle {
-    color: #201B10;
-    font-size: 40px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
+  color: #201b10;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
 }
 
 .highlightDescription {
-    color: #201B10;
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+  color: #201b10;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
-
