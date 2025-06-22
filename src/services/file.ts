@@ -19,7 +19,7 @@ export const FileService = {
         const files = localStorage.getItem(STORAGE_KEY);
         return files ? JSON.parse(files).map((file: StoredFile) => ({
             ...file,
-            date: new Date(file.date).toLocaleDateString("ru-RU")
+            date: file.date
         })) : [];
     },
 
@@ -30,8 +30,9 @@ export const FileService = {
 
     addFile(file: StoredFile) {
         const current = FileService.getFiles();
-        localStorage.setItem(STORAGE_KEY, JSON.stringify([...current, file]));
-        return [...current, file];
+        const updated = [...current, file];
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
+        return updated;
     },
 
     clearFiles(): void {

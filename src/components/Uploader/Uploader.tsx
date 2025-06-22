@@ -86,6 +86,19 @@ export const Uploader = () => {
             localStorage.setItem("upload-history", JSON.stringify({ date: new Date().toISOString(), filename: file.name }));
 
             if (finalJson) {
+                console.log("Добавление файла в FileService:", {
+                    name: file.name,
+                    date: new Date().toISOString(),
+                    processed: true,
+                    total_spend_galactic: finalJson.total_spend_galactic,
+                    rows_affected: finalJson.rows_affected,
+                    less_spent_at: finalJson.less_spent_at,
+                    big_spent_civ: finalJson.big_spent_civ,
+                    less_spent_civ: finalJson.less_spent_civ,
+                    big_spent_at: finalJson.big_spent_at,
+                    big_spent_value: finalJson.big_spent_value,
+                    average_spend_galactic: finalJson.average_spend_galactic,
+                });
                 FileService.addFile({
                     name: file.name,
                     date: new Date().toISOString(),
@@ -108,6 +121,7 @@ export const Uploader = () => {
                 processed: false
             };
             console.log(errorFileInfo);
+            console.log("Добавление ошибочного файла в FileService:", errorFileInfo);
             FileService.addFile(errorFileInfo);}
         finally {
             setIsLoading(false);
