@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
-import styles from './History.module.css';
 import { Header } from '../../components/Header';
 import { Link } from 'react-router';
 import { FileService, type StoredFile } from '../../services/file';
 import { Modal } from '../../components/Modal';
+import styles from './History.module.css';
 
 export const HistoryPage: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
